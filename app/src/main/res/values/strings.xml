@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">UIElementsP2a</string>
+    <string-array name="arianag">
+        <item>Dangerous Woman</item>
+        <item>No tears left to cry</item>
+        <item>Into You</item>
+        <item>Side to side</item>
+        <item>Problem</item>
+    </string-array>
+    <string-array name="moirag">
+        <item>Sundo</item>
+        <item>Malaya</item>
+        <item>We&amp;Us</item>
+        <item>Saglit</item>
+        <item>You are my sunshine</item>
+    </string-array>
+    <string-array name="grandeg">
+        <item>Thank U, Next</item>
+        <item>God is a woman</item>
+        <item>Rain on me</item>
+        <item>Don\'t call me angel</item>
+        <item>Boyfriend</item>
+    </string-array>
+</resources>
