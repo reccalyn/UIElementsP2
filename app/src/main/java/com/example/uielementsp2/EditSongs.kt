@@ -22,14 +22,10 @@ class EditSongs : AppCompatActivity() {
         val databaseHandler = SongsDatabaseHandler (this)
         song = databaseHandler.readOne(song_id)
 
-
-
         title = findViewById(R.id.editTitleEditText)
         artist = findViewById( R.id.editArtistEditText)
         album = findViewById(R.id.editAlbumEditText)
         updateBtn = findViewById(R.id.updateBtn)
-
-
 
         title.setText(song.title)
         album.setText(song.album)

@@ -13,8 +13,7 @@ import com.example.uielementsp2.databaseHandler.SongsDatabaseHandler
 import com.example.uielementsp2.models.Song
 import com.google.android.material.snackbar.Snackbar
 
-val queuedSongs = ArrayList<String>() //Array where all the songs queued will be stored and will be passed to the Queue activity
-//lateinit var queuedSongs = MutableList<Song>
+val queuedSongs = ArrayList<String>()
 lateinit var songsArray: MutableList<Song>
 lateinit var songsAdapter: ArrayAdapter<Song>
 
@@ -26,23 +25,16 @@ class FirstActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_first)
 
-
-        //Get the table handler
         songsDatabaseHandler = SongsDatabaseHandler(this)
-        //get the records from the database
         songsArray = songsDatabaseHandler.read()
 
-        //Map the views
         var songsListView  = findViewById<ListView>(R.id.songsListView)
-        //Adapter for the list view
         songsAdapter = ArrayAdapter<Song>(this, android.R.layout.simple_list_item_1, songsArray)
         songsListView.adapter = songsAdapter
 
-        //Register the context menu to the List View
         registerForContextMenu(songsListView)
 
     }
-    //Context Menu
     override fun onCreateContextMenu(
         menu: ContextMenu?,
         v: View?,
@@ -93,8 +85,6 @@ class FirstActivity : AppCompatActivity() {
 
     }
 
-
-    //Main Menu
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val inflater = menuInflater
         inflater.inflate(R.menu.main_menu, menu)

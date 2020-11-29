@@ -23,33 +23,27 @@ class AlbumDetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_album_details)
 
-        //Get the extra from the previous activity
         val uri = intent.getStringExtra("imageUri")
 
-        //Map the ImageView
         val AlbumCover = findViewById<ImageView>(R.id.albumCover)
-        //Map the List View
+
         val albumDetailsListView = findViewById<ListView>(R.id.albumDetailsListView)
-        //map the edit text for the title
+
         val title = findViewById<TextView>(R.id.albumTitle)
         title.setText(intent.getStringExtra("albumTitle").toString())
 
-        //Replacing the current source of the Image view using the URI
         var imageResource = getResources().getIdentifier(uri, null, getPackageName()) //Gets the resource using the URI
         var res = getResources().getDrawable(imageResource) //Converting the image resource into a drawable file
         AlbumCover.setImageDrawable(res) //Attach/set the drawable to the Image view
 
-        //Attach the adapter to the list view
         adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, albumSongs)
         albumDetailsListView.adapter = adapter
 
-        //Register the list view to the context menu
         registerForContextMenu(albumDetailsListView)
 
 
     }
 
-    //Context Menu
     override fun onCreateContextMenu(
         menu: ContextMenu?,
         v: View?,

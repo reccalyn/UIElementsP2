@@ -18,9 +18,7 @@ class NewAlbumDetailsActivity : AppCompatActivity() {
     lateinit var albumSongsListView : ListView
     lateinit var songsDatabaseHandler: SongsDatabaseHandler
     lateinit var album : Album
-    //used for Album Songs
     lateinit var albumSongs: MutableList<AlbumSong>
-
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

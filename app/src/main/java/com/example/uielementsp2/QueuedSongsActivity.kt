@@ -33,18 +33,12 @@ class QueuedSongsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_queued_songs)
-
-        //adapter for the queued songs
         adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, queuedSongs)
-        //Map the list view
         val queuedSongsListView = findViewById<ListView>(R.id.queuedSongs)
-        //Attach the adapter to the list view
         queuedSongsListView.adapter = adapter
-        //Register context menu
         registerForContextMenu(queuedSongsListView)
     }
 
-    //Context Menu
     override fun onCreateContextMenu(
         menu: ContextMenu?,
         v: View?,
@@ -63,10 +57,8 @@ class QueuedSongsActivity : AppCompatActivity() {
                 queuedSongs.removeAt(menuInfo.position) //gets the position and remove
                 adapter.notifyDataSetChanged() //Notify the adapter
                 Toast.makeText(this, "$song is removed from Queue.", Toast.LENGTH_SHORT).show()
-                //Notification that will be fired when the size of the array is == 0
                 if (queuedSongs.size <= 0) {
                     notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-                    //Display the notification
                     val pendingIntent = PendingIntent.getActivity(applicationContext, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                         notificationChannel = NotificationChannel(

@@ -32,12 +32,9 @@ class AddSongsToAlbum : AppCompatActivity() {
         albumTitleEditText.setText(albumTitle)
 
         addAlbumSong.setOnClickListener{
-            //get the field from the forms
             val title_string = albumSongTitle.text.toString()
             val album_title = albumTitleEditText.text.toString()
-            //assign it to a book model
             val albumSong = AlbumSong(albumSong = title_string, albumTitle = album_title)
-            //save it to the database
             if (databaseHandler.createAlbumSongs(albumSong)){
                 Toast.makeText(this, "Song added to the Album.", Toast.LENGTH_SHORT).show()
             } else {

@@ -13,7 +13,6 @@ class ImageAdapter(val c: Context):BaseAdapter() {
     init {
         mContext = c
     }
-    //References to the image
     var thumbImages = arrayOf<Int>(
         R.drawable.ariana,
         R.drawable.grande,
@@ -31,7 +30,6 @@ class ImageAdapter(val c: Context):BaseAdapter() {
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val imageView = ImageView(mContext)
         imageView.setLayoutParams(GridView@AbsListView.LayoutParams(300, 300))
-//        imageView.layoutParams = AbsListView.LayoutParams(200, 200) //just the same as above but different syntax
         imageView.scaleType = ImageView.ScaleType.CENTER_CROP
         imageView.setPadding(8, 8, 8, 8)
         imageView.setImageResource(thumbImages[position])

@@ -28,13 +28,10 @@ class AddSongs : AppCompatActivity() {
 
 
         addBtn.setOnClickListener {
-            //get the field from the forms
             val title_string = title.text.toString()
             val artist_string = author.text.toString()
             val album_string = album.text.toString()
-            //assign it to a book model
             val song = Song(title = title_string, artist = artist_string, album =  album_string)
-            //save it to the database
             if (databaseHandler.create(song)){
                 Toast.makeText(this, "Song added.", Toast.LENGTH_SHORT).show()
             } else {

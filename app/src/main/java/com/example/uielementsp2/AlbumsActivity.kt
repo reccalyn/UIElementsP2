@@ -31,11 +31,8 @@ class AlbumsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_albums)
 
         listView = findViewById(R.id.listView)
-        //get the table handler
         databaseHandler = SongsDatabaseHandler(this)
-        //get the records
         albums = databaseHandler.readAlbum()
-        //attach it to the adapter
         albumAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, albums)
         listView.adapter = albumAdapter
 

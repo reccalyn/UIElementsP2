@@ -54,7 +54,6 @@ class EditAlbum : AppCompatActivity() {
             val title_string = editAlbum.text.toString()
             val releaseDate_string = releaseDate
             val updateAlbum = Album(id = album.id, albumTitle = title_string, releaseDate = releaseDate_string)
-            //save it to the database
             if (songsDatabaseHandler.updateAlbum(updateAlbum)){
                 Toast.makeText(this, "Album updated!", Toast.LENGTH_SHORT).show()
             } else {

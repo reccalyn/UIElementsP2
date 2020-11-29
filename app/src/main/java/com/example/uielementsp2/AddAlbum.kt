@@ -23,8 +23,6 @@ class AddAlbum : AppCompatActivity() {
         addAlbumBtn = findViewById(R.id.updateAlbumBtn)
         val databaseHandler = SongsDatabaseHandler(this)
 
-
-        //Date picker
         datePicker = findViewById<DatePicker>(R.id.datePickerEdit) as DatePicker
         datePicker.init(2020, 11, 1, object: DatePicker.OnDateChangedListener{
             override fun onDateChanged(
@@ -39,12 +37,9 @@ class AddAlbum : AppCompatActivity() {
 
 
         addAlbumBtn.setOnClickListener {
-            //get the field from the forms
             val albumTitle_string = albumTitle.text.toString()
             val date_string = releaseDate
-            //assign it to a book model
             val album = Album(albumTitle = albumTitle_string, releaseDate = date_string)
-            //save it to the database
             if (databaseHandler.createAlbum(album)){
                 Toast.makeText(this, "Album was added.", Toast.LENGTH_SHORT).show()
                 albumAdapter.notifyDataSetChanged()
