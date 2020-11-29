@@ -8,5 +8,8 @@
         android:id="@+id/go_to_queue"
         android:title="Queue"
         />
-
+    <item
+        android:id="@+id/addASong"
+        android:title="Add Song"
+        />
 </menu>
